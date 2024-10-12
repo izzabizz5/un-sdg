@@ -95,14 +95,14 @@ export class unSdg extends DDDSuper((LitElement)) {
     `];
   }
 
-  // method to verify goal exists and if it does then update it to show on the web
+  // method to verify goal exists and if it does then update some properties to accurately show on the web
   updated(changedProperties) {
     if (changedProperties.has("goal")) {
       this.updateGoal();
     }
   }
 
-  // sets some variables 
+  // sets some variables and makes everything reference throughout useable
   updateGoal() {
     this.imgSrc = new URL(`../lib/svgs/goal-${this.goal}.svg`, import.meta.url).href;
     this.altText = this.label || `Goal: ${this.goal}`;
@@ -113,13 +113,13 @@ export class unSdg extends DDDSuper((LitElement)) {
   // Lit render the HTML
   render() {
     let imgSrc = new URL(`../lib/svgs/goal-${this.goal}.svg`, import.meta.url).href;
-    if (this.goal === "all") {
+    if (this.goal === "all") { // if the goal is all then output the all image
       imgSrc = new URL(`../lib/svgs/all.svg`, import.meta.url).href;
     }
-    else if (this.goal === "circle") {
+    else if (this.goal === "circle") { // if the goal is circle then output the circle image
       imgSrc = new URL(`../lib/svgs/circle.png`, import.meta.url).href;
     }
-    if (this.colorOnly) {
+    if (this.colorOnly) { // this is a way to output all the images with just the background colors
       return html`
       <div class="color-block" style="background-color: var(--un-sdg-goal-${this.goal})"></div>
       `;
@@ -136,9 +136,6 @@ export class unSdg extends DDDSuper((LitElement)) {
     `;
   }
 
-  /**
-   * haxProperties integration via file reference
-   */
   static get haxProperties() {
     return new URL(`./lib/${this.tag}.haxProperties.json`, import.meta.url)
       .href;

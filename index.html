@@ -37,8 +37,8 @@
     <h1>un-sdg</h1>
     <!-- this is going to do whatever the tag's defaults are -->
 
-    <!-- Default Goal -->
-    <h3>Regular SDG's</h3>
+    <!-- outputs all the images as they are -->
+    <h3>Regular SDG's</h3> 
     <un-sdg 
       goal="1"
       loading="lazy"
@@ -65,6 +65,7 @@
     <un-sdg goal="all"></un-sdg>
     <un-sdg goal="circle"></un-sdg>
 
+    <!--output's only the background-color of the images-->
     <h3>Color Only SDG's</h3>
     <un-sdg goal="1" colorOnly></un-sdg>
     <un-sdg goal="2" colorOnly></un-sdg>
@@ -94,6 +95,9 @@
   </div>
 
   <script type="module" src="./un-sdg.js"></script>
+
+  <!--by hitting the button 'onclick' the changeRandomGoal function is set off and that uses the built in random function
+  to change the goal number. By using the math floor function the random number stays between 1 and 17-->
   <script>
     function changeRandomGoal() {
       const randomGoal = Math.floor(Math.random() * 17) + 1;
