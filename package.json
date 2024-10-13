@@ -16,8 +16,8 @@
       "url": "https://github.com/izzabizz5/un-sdg"
     },
     "type": "module",
-    "main": "un-sdg.js",
-    "module": "un-sdg.js",
+    "main": "./src/un-sdg.js",
+    "module": "./src/un-sdg.js",
     "scripts": {
       "start": "web-dev-server",
       "build": "rimraf public && rollup -c rollup.config.js && npm run analyze",
