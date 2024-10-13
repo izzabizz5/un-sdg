@@ -28,7 +28,7 @@ export class unSdg extends DDDSuper((LitElement)) {
     this.colorOnly = false;
   }
 
-  // Lit reactive properties
+  // defines properties
   static get properties() {
     return {
       title: { type: String },
@@ -48,7 +48,7 @@ export class unSdg extends DDDSuper((LitElement)) {
     css`
       :host {
         display: inline-flex;
-        // color: var(--ddd-theme-primary);
+        color: var(--ddd-theme-primary);
         --un-sdg-width: 254px;
         --un-sdg-height: 254px;
         background-color: white;
@@ -102,7 +102,7 @@ export class unSdg extends DDDSuper((LitElement)) {
     }
   }
 
-  // sets some variables and makes everything reference throughout useable
+  // sets some variables and makes every reference throughout useable
   updateGoal() {
     this.imgSrc = new URL(`../lib/svgs/goal-${this.goal}.svg`, import.meta.url).href;
     this.altText = this.label || `Goal: ${this.goal}`;
@@ -114,10 +114,10 @@ export class unSdg extends DDDSuper((LitElement)) {
   render() {
     let imgSrc = new URL(`../lib/svgs/goal-${this.goal}.svg`, import.meta.url).href;
     if (this.goal === "all") { // if the goal is all then output the all image
-      imgSrc = new URL(`../lib/svgs/all.svg`, import.meta.url).href;
+      imgSrc = new URL(`../lib/svgs/${this.goal}.svg`, import.meta.url).href;
     }
     else if (this.goal === "circle") { // if the goal is circle then output the circle image
-      imgSrc = new URL(`../lib/svgs/circle.png`, import.meta.url).href;
+      imgSrc = new URL(`../lib/svgs/${this.goal}.png`, import.meta.url).href;
     }
     if (this.colorOnly) { // this is a way to output all the images with just the background colors
       return html`
