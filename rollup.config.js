@@ -33,6 +33,7 @@ export default {
     babel({
       plugins: [
         [
+          'rollup-plugin-import-meta-assets',
           'babel-plugin-template-html-minifier',
           {
             modules: { lit: ['html', { name: 'css', encapsulation: 'style' }] },
