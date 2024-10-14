@@ -57,7 +57,7 @@
       "cli": true
     },
     "pkg": {
-      "assets": ["lib/**/**"]
+      "assets": ["lib/src/*"]
       },
     "customElements": "custom-elements.json"
   }
