@@ -56,5 +56,8 @@
     "hax": {
       "cli": true
     },
+    "pkg": {
+      "assets": ["lib/**/**"]
+      },
     "customElements": "custom-elements.json"
   }
