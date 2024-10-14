@@ -104,7 +104,7 @@ export class unSdg extends DDDSuper((LitElement)) {
 
   // sets some variables and makes every reference throughout useable
   updateGoal() {
-    this.imgSrc = new URL(`../lib/svgs/goal-${this.goal}.svg`, import.meta.url).href;
+    this.imgSrc = new URL(`../src/lib/svgs/goal-${this.goal}.svg`, import.meta.url).href;
     this.altText = this.label || `Goal: ${this.goal}`;
     const colorVar = `--goal-${this.goal}`;
     this.style.setProperty("--un-sdg-goal-color", `var(${colorVar})`);
@@ -112,12 +112,12 @@ export class unSdg extends DDDSuper((LitElement)) {
 
   // Lit render the HTML
   render() {
-    let imgSrc = new URL(`../lib/svgs/goal-${this.goal}.svg`, import.meta.url).href;
+    let imgSrc = new URL(`../src/lib/svgs/goal-${this.goal}.svg`, import.meta.url).href;
     if (this.goal === "all") { // if the goal is all then output the all image
-      imgSrc = new URL(`../lib/svgs/${this.goal}.svg`, import.meta.url).href;
+      imgSrc = new URL(`../src/lib/svgs/${this.goal}.svg`, import.meta.url).href;
     }
     else if (this.goal === "circle") { // if the goal is circle then output the circle image
-      imgSrc = new URL(`../lib/svgs/${this.goal}.png`, import.meta.url).href;
+      imgSrc = new URL(`../src/lib/svgs/${this.goal}.png`, import.meta.url).href;
     }
     if (this.colorOnly) { // this is a way to output all the images with just the background colors
       return html`
@@ -137,7 +137,7 @@ export class unSdg extends DDDSuper((LitElement)) {
   }
 
   static get haxProperties() {
-    return new URL(`../lib/${this.tag}.haxProperties.json`, import.meta.url)
+    return new URL(`../src/lib/${this.tag}.haxProperties.json`, import.meta.url)
       .href;
   }
 }
