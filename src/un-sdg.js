@@ -42,7 +42,7 @@ export class unSdg extends DDDSuper((LitElement)) {
     };
   }
 
-  // Lit scoped styles
+  // Lit scoped styles and variables for the background colors
   static get styles() {
     return [super.styles,
     css`
