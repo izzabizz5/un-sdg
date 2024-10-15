@@ -32,7 +32,7 @@ export class unSdg extends DDDSuper((LitElement)) {
   static get properties() {
     return {
       title: { type: String },
-      goal: { type: String },
+      goal: { type: String, reflect: true},
       label: { type: String },
       height: { type: String },
       width: { type: String },
