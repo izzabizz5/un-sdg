@@ -75,6 +75,7 @@ export class unSdg extends DDDSuper((LitElement)) {
       .wrapper {
         margin: var(--ddd-spacing-2);
         padding: var(--ddd-spacing-4);
+        border-radius: 8px;
       }
       h3 span {
         font-size: var(--un-sdg-label-font-size, var(--ddd-font-size-s));
@@ -82,15 +83,19 @@ export class unSdg extends DDDSuper((LitElement)) {
       .color-block {
         width: var(--un-sdg-width, 254px);
         height: var(--un-sdg-height, 254px);
+        border-radius: 8px;
       }
       img {
         width: var(--un-sdg-width, 254px);
         height: var(--un-sdg-height, 254px);
+        border-radius: 8px;
+        border-color: var(--un-sdg-goal-color);
       }
       .sdg-wrapper {
         width: var(--un-sdg-width, 254px);
         height: var(--un-sdg-height, 254px);
         background-color: var(--un-sdg-goal-color, #000);
+        border-radius: 8px;
       }
     `];
   }
@@ -104,10 +109,36 @@ export class unSdg extends DDDSuper((LitElement)) {
 
   // sets some variables and makes every reference throughout useable
   updateGoal() {
-    this.imgSrc = new URL(`../src/lib/svgs/goal-${this.goal}.svg`, import.meta.url).href;
-    this.altText = this.label || `Goal: ${this.goal}`;
-    const colorVar = `--goal-${this.goal}`;
-    this.style.setProperty("--un-sdg-goal-color", `var(${colorVar})`);
+    this.imgSrc = new URL(`../src/lib/svgs/goal-${this.goal}.svg`, import.meta.url).href; // update image (svg)
+    this.label = this.getGoalName(this.goal); // update the label based on the goal
+    this.altText = this.label || `Goal: ${this.goal}`; // update the text
+    const colorVar = `--goal-${this.goal}`; //create color variable to set the background-color
+    this.style.setProperty("--un-sdg-goal-color", `var(${colorVar})`); // sets the background-color
+  }
+
+  // svg labels
+  getGoalName(goal) {
+    const names = {
+      '1': 'No Poverty',
+      '2': 'Zero Hunger',
+      '3': 'Good Health and Well-being',
+      '4': 'Quality Education',
+      '5': 'Gender Equality',
+      '6': 'Clean Water and Sanitation',
+      '7': 'Affordable and Clean Energy',
+      '8': 'Decent Work and Economic Growth',
+      '9': 'Industry, Innovation, and Infrastructure',
+      '10': 'Reduced Inequality',
+      '11': 'Sustainable Cities and Communities',
+      '12': 'Responsible Consumption and Production',
+      '13': 'Climate Action',
+      '14': 'Life Below Water',
+      '15': 'Life on Land',
+      '16': 'Peace and Justice Strong Institutions',
+      '17': 'Partnerships for the Goals',
+    };
+
+    return names[goal] || 'Goal'; // returning them
   }
 
   // Lit render the HTML
