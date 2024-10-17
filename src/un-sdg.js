@@ -80,8 +80,8 @@ export class unSdg extends DDDSuper((LitElement)) {
         font-size: var(--un-sdg-label-font-size, var(--ddd-font-size-s));
       }
       .color-block {
-        width: var(--un-sdg-width, 100%);
-        height: var(--un-sdg-height, 100%);
+        width: var(--un-sdg-width, 254px);
+        height: var(--un-sdg-height, 254px);
       }
       img {
         width: var(--un-sdg-width, 254px);
